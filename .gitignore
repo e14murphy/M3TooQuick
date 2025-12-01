@@ -1,0 +1,9 @@
+# created by virtualenv automatically
+.venv/bin
+# my ssh keys were generated within the repo, so triple ensuring I don't accidentally upload them
+PRIVATEFOLDER/
+PRIVATEFOLDER/M3UQuick
+PRIVATEFOLDER/M3UQuick.pub
+CODEDESCRIPTIONSANDPSUDOCODE.txt
+Assets/MusicFolder/*
+!Assets/MusicFolder/.gitkeep
