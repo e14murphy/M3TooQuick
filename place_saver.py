@@ -4,11 +4,11 @@ list of song files to make playlists can be a time consuming process.
 
 Instance Variables:
     place_saver_directory_path (string): The file path of a directory in which information about a session is saved
-    playlist_list (list): A list of objects from the Playlist class
     song_queue (list): the queue of songs yet to be sorted
 
 Methods:
     save_place(): writes information about the session to the directory at the path place_saver_file_path holds
+    update_save_info(list): updates the PlaceSaver self.song_queue instance variable to the current queue
 """
 
 import os
@@ -24,12 +24,13 @@ class PlaceSaver:
         try:
             os.mkdir(f"{self.place_saver_directory_path}")
         except FileExistsError:
-            self.playlist_list = txt_manip.file_to_list(f"{self.place_saver_directory_path}/playlist_list.txt")
             self.song_queue = txt_manip.file_to_list(f"{self.place_saver_directory_path}/song_queue.txt")
         else:
-            self.playlist_list = self.song_queue = []
+            self.song_queue = []
+
+    def update_save_info(self, song_queue):
+        self.song_queue = song_queue
 
     def save_place(self):
-        """Make files playlist_list.txt and song_queue.txt if they dont exist, write session info to those files."""
-        txt_manip.list_to_file(self.playlist_list, f"{self.place_saver_directory_path}/playlist_list.txt")
+        """Make file song_queue.txt if it does not exist, write session info to file."""
         txt_manip.list_to_file(self.song_queue, f"{self.place_saver_directory_path}/song_queue.txt")

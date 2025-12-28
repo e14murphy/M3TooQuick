@@ -10,6 +10,7 @@ class MusicPlayer:
 
     @staticmethod
     def play_song(song_filename, start_time = None):
+        """Play a song starting at a specified time using Pyglet."""
         #Loading song
         player = pyglet.media.Player()
         song = pyglet.media.load(f"Assets/MusicFolder/{song_filename}")
@@ -20,3 +21,11 @@ class MusicPlayer:
         player.play()
         pyglet.app.run()
         #Insert Event to stop playback before moving to next song
+
+    @staticmethod
+    def pause_song():
+        pass
+
+    @staticmethod
+    def seek_song():
+        pass
