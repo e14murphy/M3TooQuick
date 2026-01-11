@@ -3,12 +3,12 @@ It is the primary motivation for making this program in the first place, as sort
 list of song files to make playlists can be a time consuming process.
 
 Instance Variables:
-    place_saver_directory_path (string): The file path of a directory in which information about a session is saved
-    song_queue (list): the queue of songs yet to be sorted
+    place_saver_directory_path (string): The file path of a directory in which information about a session is saved.
+    song_queue (list): The queue of songs yet to be sorted.
 
 Methods:
-    save_place(): writes information about the session to the directory at the path place_saver_file_path holds
-    update_save_info(list): updates the PlaceSaver self.song_queue instance variable to the current queue
+    save_place(): Writes information about the session to the directory at the path place_saver_file_path holds.
+    update_save_info(list): Updates the PlaceSaver self.song_queue instance variable to the current queue.
 """
 
 import os
@@ -26,6 +26,7 @@ class PlaceSaver:
         except FileExistsError:
             self.song_queue = txt_manip.file_to_list(f"{self.place_saver_directory_path}/song_queue.txt")
         else:
+            os.mkdir(f"{self.place_saver_directory_path}/M3Ufiles")
             self.song_queue = []
 
     def update_save_info(self, song_queue):

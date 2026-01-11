@@ -5,6 +5,7 @@ Methods:
 
 """
 
+from PyQt6.QtMultimedia import QMediaPlayer, QAudioOutput
 import pyglet
 class MusicPlayer:
 
@@ -28,4 +29,8 @@ class MusicPlayer:
 
     @staticmethod
     def seek_song():
+        pass
+
+    @staticmethod
+    def play_song_qt(song_filename, start_time = None):
         pass
